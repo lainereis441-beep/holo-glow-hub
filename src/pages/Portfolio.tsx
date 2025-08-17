@@ -89,7 +89,7 @@ const testimonials: Testimonial[] = [
     name: "Mariana Costa",
     role: "Fundadora – BeautyStore",
     quote: "Estratégia de tráfego perfeita. Aumentamos as vendas em 300% em apenas 3 meses!",
-    avatar: "https://images.unsplash.com/photo-1494790108755-2616b332c3b5?q=80&w=200&auto=format&fit=crop",
+    avatar: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?q=80&w=200&auto=format&fit=crop",
     stars: 5,
   },
   {

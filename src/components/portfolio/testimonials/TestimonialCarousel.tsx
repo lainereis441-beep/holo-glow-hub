@@ -19,12 +19,12 @@ export function TestimonialCarousel({ testimonials }: TestimonialCarouselProps) 
     <div className="relative w-full overflow-hidden">
       <motion.div
         className="flex gap-6"
-        animate={{ x: `-${index * 100}%` }}
+        animate={{ x: `-${index * (100 / 3)}%` }}
         transition={{ type: "spring", stiffness: 90, damping: 16 }}
-        style={{ width: `${len * 100}%` }}
+        style={{ width: `${len * (100 / 3)}%` }}
       >
         {testimonials.map((testimonial, i) => (
-          <div key={i} className="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0">
+          <div key={i} className="w-1/3 flex-shrink-0 px-2">
             <TestimonialCard testimonial={testimonial} />
           </div>
         ))}
