@@ -78,6 +78,34 @@ const testimonials: Testimonial[] = [
     avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=200&auto=format&fit=crop",
     stars: 5,
   },
+  {
+    name: "Roberto Silva",
+    role: "Diretor – TechFlow",
+    quote: "O app que o Italo desenvolveu automatizou 80% dos nossos processos. ROI impressionante!",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop",
+    stars: 5,
+  },
+  {
+    name: "Mariana Costa",
+    role: "Fundadora – BeautyStore",
+    quote: "Estratégia de tráfego perfeita. Aumentamos as vendas em 300% em apenas 3 meses!",
+    avatar: "https://images.unsplash.com/photo-1494790108755-2616b332c3b5?q=80&w=200&auto=format&fit=crop",
+    stars: 5,
+  },
+  {
+    name: "Pedro Oliveira",
+    role: "VP Comercial – InnovaTech",
+    quote: "As apresentações ficaram muito mais impactantes. Nossa taxa de fechamento dobrou!",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
+    stars: 5,
+  },
+  {
+    name: "Fernanda Lima",
+    role: "CEO – DigitalMax",
+    quote: "Plataforma SaaS entregue no prazo e acima das expectativas. Parceiro estratégico!",
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop",
+    stars: 5,
+  },
 ];
 
 const projects: Project[] = [
@@ -146,8 +174,11 @@ export default function Portfolio() {
         </div>
       </header>
 
+      {/* Animated Banners */}
+      <CrossedAnimatedBanners />
+
       {/* Hero Section */}
-      <section className="relative max-w-7xl mx-auto px-4 pt-14 pb-16">
+      <section className="relative max-w-7xl mx-auto px-4 pt-8 pb-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
           <div className="text-center lg:text-left">
             <div className="inline-flex items-center gap-2 text-xs px-3 py-1 rounded-full bg-glass-bg ring-1 ring-glass-border">
@@ -225,9 +256,6 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
-
-      {/* Animated Banners */}
-      <CrossedAnimatedBanners />
 
       {/* Services Section */}
       <section className="max-w-7xl mx-auto px-4 py-16">
