@@ -18,11 +18,12 @@ import { ServiceCard, type Service } from "@/components/portfolio/services/Servi
 import { TestimonialCarousel } from "@/components/portfolio/testimonials/TestimonialCarousel";
 import { ProjectCard, type Project } from "@/components/portfolio/projects/ProjectCard";
 import { type Testimonial } from "@/components/portfolio/testimonials/TestimonialCard";
+import { CrossedAnimatedBanners } from "@/components/portfolio/AnimatedBanner";
 
 // Assets
 import italoPortrait from "@/assets/italo-portrait-1.jpg";
-import italoPortraitClean from "@/assets/italo-portrait-clean.png";
-import italoFullbodyClean from "@/assets/italo-fullbody-clean.png";
+import italoPortraitClean from "@/assets/italo-portrait-transparent.png";
+import italoFullbodyClean from "@/assets/italo-fullbody-transparent.png";
 import workSetup from "@/assets/work-setup-1.jpg";
 import projectWebsite from "@/assets/project-website-1.jpg";
 import speakingSetup from "@/assets/speaking-setup.jpg";
@@ -199,7 +200,7 @@ export default function Portfolio() {
             <FloatingImageWithEffects
               src={italoPortraitClean}
               alt="Italo Maicom - Retrato profissional"
-              className="h-64 w-full"
+              className="h-64 w-full drop-shadow-2xl"
               hasEffects={true}
             />
             <FloatingImage
@@ -217,13 +218,16 @@ export default function Portfolio() {
             <FloatingImageWithEffects
               src={italoFullbodyClean}
               alt="Italo Maicom - Foto completa"
-              className="h-72 mt-8"
+              className="h-72 mt-8 drop-shadow-2xl"
               delay={3}
               hasEffects={true}
             />
           </div>
         </div>
       </section>
+
+      {/* Animated Banners */}
+      <CrossedAnimatedBanners />
 
       {/* Services Section */}
       <section className="max-w-7xl mx-auto px-4 py-16">
