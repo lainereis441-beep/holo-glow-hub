@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { 
   Phone, 
   Instagram, 
@@ -7,8 +7,7 @@ import {
   MessageCircle, 
   ArrowRight, 
   CheckCircle2, 
-  PlayCircle,
-  Zap
+  PlayCircle 
 } from "lucide-react";
 import { NeonButton } from "@/components/portfolio/NeonButton";
 import { AnimatedBorderCard } from "@/components/portfolio/AnimatedBorderCard";
@@ -20,8 +19,6 @@ import { TestimonialCarousel } from "@/components/portfolio/testimonials/Testimo
 import { ProjectCard, type Project } from "@/components/portfolio/projects/ProjectCard";
 import { type Testimonial } from "@/components/portfolio/testimonials/TestimonialCard";
 import { CrossedAnimatedBanners } from "@/components/portfolio/AnimatedBanner";
-import { DifficultyPopup } from "@/components/portfolio/DifficultyPopup";
-import { BackgroundEffects } from "@/components/portfolio/BackgroundEffects";
 
 // Assets
 import italoPortrait from "@/assets/italo-portrait-1.jpg";
@@ -30,7 +27,6 @@ import italoFullbodyClean from "@/assets/italo-fullbody-transparent.png";
 import workSetup from "@/assets/work-setup-1.jpg";
 import projectWebsite from "@/assets/project-website-1.jpg";
 import speakingSetup from "@/assets/speaking-setup.jpg";
-import italoLogo from "@/assets/italo-logo.png";
 
 // Constants
 const PHONE = "+5574974008239";
@@ -142,8 +138,6 @@ function msgFor(serviceId: string): string {
 }
 
 export default function Portfolio() {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-
   const handleServiceContact = (serviceId: string) => {
     window.open(waLink(msgFor(serviceId)), '_blank');
   };
@@ -155,32 +149,26 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen text-foreground bg-background overflow-x-hidden">
-      {/* Enhanced Background Effects */}
-      <BackgroundEffects />
+      {/* Background Effects */}
+      <div className="fixed inset-0 -z-10">
+        <div className="absolute -top-28 -right-32 w-[42rem] h-[42rem] bg-gradient-to-br from-neon-fuchsia/25 to-neon-cyan/20 rounded-full blur-[120px]" />
+        <div className="absolute top-1/2 -left-20 w-[36rem] h-[36rem] bg-gradient-to-br from-indigo-600/20 to-neon-pink/20 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 right-1/3 w-[26rem] h-[26rem] bg-neon-cyan/10 rounded-full blur-[90px]" />
+      </div>
 
       {/* Navigation */}
       <header className="sticky top-0 z-20 backdrop-blur-xl bg-background/50 border-b border-glass-border">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img 
-              src={italoLogo} 
-              alt="Italo Maicom Logo" 
-              className="w-10 h-10 rounded-xl object-contain"
-            />
-            <span className="font-bold tracking-wide text-lg">Italo Maicom</span>
+            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-neon-fuchsia to-neon-cyan" />
+            <span className="font-semibold tracking-wide">Italo Maicom</span>
           </div>
-          <div className="hidden sm:flex items-center gap-4">
-            <NeonButton href={waLink(msgFor("geral"))} className="px-6">
+          <div className="flex items-center gap-3">
+            <NeonButton href={waLink(msgFor("geral"))}>
               <Phone className="w-4 h-4" /> Fale comigo
             </NeonButton>
-            <NeonButton href={IG_URL} variant="secondary" className="px-6">
+            <NeonButton href={IG_URL} variant="secondary">
               <Instagram className="w-4 h-4" /> Instagram
-            </NeonButton>
-          </div>
-          {/* Mobile menu */}
-          <div className="sm:hidden">
-            <NeonButton href={waLink(msgFor("geral"))} size="sm">
-              <Phone className="w-4 h-4" />
             </NeonButton>
           </div>
         </div>
@@ -198,60 +186,37 @@ export default function Portfolio() {
               <span className="text-text-muted">Portfólio Futurista</span>
             </div>
             
-            <h1 className="mt-5 text-3xl sm:text-4xl lg:text-6xl font-black leading-tight">
+            <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-black leading-tight">
               <span className="bg-gradient-text text-transparent bg-clip-text">
                 Italo Maicom
               </span>
               <br />
-              <span className="text-foreground/80 font-semibold text-xl sm:text-2xl lg:text-4xl">Gestor de Tráfego</span>
+              <span className="text-foreground/80 font-semibold text-2xl sm:text-3xl lg:text-4xl">Gestor de Tráfego</span>
               <br />
-              <span className="text-foreground/80 font-semibold text-xl sm:text-2xl lg:text-4xl">Criador de Sites, Apps & SaaS</span>
+              <span className="text-foreground/80 font-semibold text-2xl sm:text-3xl lg:text-4xl">Criador de Sites, Apps & SaaS</span>
               <br />
-              <span className="text-foreground/80 font-semibold text-xl sm:text-2xl lg:text-4xl">Mentor de Oratória para Vendas</span>
+              <span className="text-foreground/80 font-semibold text-2xl sm:text-3xl lg:text-4xl">Mentor de Oratória para Vendas</span>
             </h1>
             
-            <p className="mt-6 text-text-muted max-w-xl mx-auto lg:mx-0 leading-relaxed text-base lg:text-lg">
+            <p className="mt-6 text-text-muted max-w-xl mx-auto lg:mx-0 leading-relaxed text-lg">
               Construo sistemas que vendem: da aquisição à conversão, do pitch ao pós-venda. 
               Efeito magnético, visual premium e resultados mensuráveis.
             </p>
             
-            {/* CTA Buttons */}
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <NeonButton 
-                onClick={() => setIsPopupOpen(true)}
-                variant="accent"
-                className="px-8 py-4 text-base font-bold"
-              >
-                <Zap className="w-5 h-5" />
-                Conte sua dificuldade
-              </NeonButton>
-              <NeonButton 
-                href={waLink(msgFor("geral"))}
-                variant="primary"
-                className="px-8 py-4"
-              >
-                <Phone className="w-5 h-5" />
-                Fale comigo agora
-              </NeonButton>
-            </div>
-            
-            {/* Service Quick Access */}
-            <div className="mt-6 flex flex-wrap gap-2 justify-center lg:justify-start">
+            <div className="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
               {services.map((service) => (
                 <NeonButton 
                   key={service.id} 
                   onClick={() => handleServiceContact(service.id)}
-                  variant="secondary"
-                  size="sm"
-                  className="text-xs"
+                  variant="primary"
                 >
-                  {service.icon}
-                  {service.title}
+                  <ArrowRight className="w-4 h-4" />
+                  Falar sobre {service.title}
                 </NeonButton>
               ))}
             </div>
             
-            <ul className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm text-text-muted">
+            <ul className="mt-8 grid sm:grid-cols-3 gap-3 text-sm text-text-muted justify-center lg:justify-start">
               {["ROAS acima da média", "Sites ultra rápidos", "Pitch que converte"].map((benefit, i) => (
                 <li key={i} className="flex items-center gap-2 justify-center lg:justify-start">
                   <CheckCircle2 className="w-4 h-4 text-neon-cyan" /> 
@@ -262,29 +227,29 @@ export default function Portfolio() {
           </div>
 
           {/* Floating Images with Special Effects */}
-          <div className="relative grid grid-cols-2 gap-4 lg:gap-6 max-w-md mx-auto">
+          <div className="relative grid grid-cols-2 gap-6 max-w-md mx-auto">
             <FloatingImageWithEffects
               src={italoPortraitClean}
               alt="Italo Maicom - Retrato profissional"
-              className="h-48 sm:h-64 w-full drop-shadow-2xl"
+              className="h-64 w-full drop-shadow-2xl"
               hasEffects={true}
             />
             <FloatingImage
               src={workSetup}
               alt="Setup de trabalho"
-              className="h-36 sm:h-48 mt-8 lg:mt-12"
+              className="h-48 mt-12"
               delay={1}
             />
             <FloatingImage
               src={projectWebsite}
               alt="Projeto de website"
-              className="h-40 sm:h-52"
+              className="h-52"
               delay={2}
             />
             <FloatingImageWithEffects
               src={italoFullbodyClean}
               alt="Italo Maicom - Foto completa"
-              className="h-56 sm:h-72 mt-6 lg:mt-8 drop-shadow-2xl"
+              className="h-72 mt-8 drop-shadow-2xl"
               delay={3}
               hasEffects={true}
             />
@@ -399,16 +364,9 @@ export default function Portfolio() {
       {/* Footer */}
       <footer className="mt-16 border-t border-glass-border">
         <div className="max-w-7xl mx-auto px-4 py-12">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-sm text-text-subtle">
+          <div className="max-w-6xl mx-auto grid sm:grid-cols-3 gap-8 text-sm text-text-subtle">
             <div className="text-center sm:text-left">
-              <div className="flex items-center gap-3 justify-center sm:justify-start mb-3">
-                <img 
-                  src={italoLogo} 
-                  alt="Italo Maicom Logo" 
-                  className="w-8 h-8 rounded-lg object-contain"
-                />
-                <div className="font-semibold text-foreground/80 text-lg">Italo Maicom</div>
-              </div>
+              <div className="font-semibold text-foreground/80 text-lg">Italo Maicom</div>
               <p className="mt-3 leading-relaxed">
                 Gestor de Tráfego • Criador de Sites/Apps/SaaS • Mentor de Oratória para Vendas
               </p>
@@ -418,13 +376,7 @@ export default function Portfolio() {
               <div className="font-semibold text-foreground/80 text-lg">Contato</div>
               <ul className="mt-3 space-y-3">
                 <li className="flex items-center gap-2 justify-center sm:justify-start">
-                  <Phone className="w-4 h-4 text-neon-cyan" /> 
-                  <a 
-                    href={waLink(msgFor("geral"))} 
-                    className="hover:text-foreground transition-colors"
-                  >
-                    {PHONE}
-                  </a>
+                  <Phone className="w-4 h-4 text-neon-cyan" /> {PHONE}
                 </li>
                 <li className="flex items-center gap-2 justify-center sm:justify-start">
                   <Instagram className="w-4 h-4 text-neon-cyan" />{" "}
@@ -442,28 +394,17 @@ export default function Portfolio() {
             
             <div className="text-center sm:text-left">
               <div className="font-semibold text-foreground/80 text-lg">Ação rápida</div>
-              <div className="mt-3 space-y-2">
-                <NeonButton 
-                  onClick={() => setIsPopupOpen(true)}
-                  variant="accent"
-                  size="sm"
-                  className="w-full sm:w-auto"
-                >
-                  <Zap className="w-3 h-3" />
-                  Conte sua dificuldade
-                </NeonButton>
-                <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
-                  {services.map((service) => (
-                    <NeonButton 
-                      key={service.id} 
-                      onClick={() => handleServiceContact(service.id)}
-                      variant="secondary"
-                      size="sm"
-                    >
-                      {service.title}
-                    </NeonButton>
-                  ))}
-                </div>
+              <div className="mt-3 flex flex-wrap gap-2 justify-center sm:justify-start">
+                {services.map((service) => (
+                  <NeonButton 
+                    key={service.id} 
+                    onClick={() => handleServiceContact(service.id)}
+                    variant="secondary"
+                    size="sm"
+                  >
+                    {service.title}
+                  </NeonButton>
+                ))}
               </div>
             </div>
           </div>
@@ -473,12 +414,6 @@ export default function Portfolio() {
           </div>
         </div>
       </footer>
-
-      {/* Difficulty Popup */}
-      <DifficultyPopup 
-        isOpen={isPopupOpen} 
-        onClose={() => setIsPopupOpen(false)} 
-      />
     </div>
   );
 }
