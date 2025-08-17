@@ -66,23 +66,13 @@ export function AnimatedBanner({
 export function CrossedAnimatedBanners() {
   return (
     <div className="relative w-full overflow-hidden py-6 my-8">
-      {/* Faixa superior - inclinada para baixo, rolando para esquerda */}
-      <div className="relative z-10 mb-6">
+      {/* Apenas faixa superior */}
+      <div className="relative z-10">
         <AnimatedBanner 
           text="✦ ITALO MAICOM ✦ GESTOR DE TRÁFEGO ✦ CRIADOR DE SITES ✦ MENTOR DE ORATÓRIA ✦" 
           direction="left"
           rotateDirection="down"
           className="bg-gradient-to-r from-neon-fuchsia/20 to-neon-cyan/20 backdrop-blur-sm border-y border-neon-fuchsia/40"
-        />
-      </div>
-      
-      {/* Faixa inferior - inclinada para cima, rolando para direita, entrelaçada */}
-      <div className="relative z-20 -mt-12">
-        <AnimatedBanner 
-          text="★ RESULTADOS MENSURÁVEIS ★ DESIGN PREMIUM ★ CONVERSÃO GARANTIDA ★ PERFORMANCE ALTA ★" 
-          direction="right"
-          rotateDirection="up"
-          className="bg-gradient-to-r from-neon-cyan/20 to-neon-amber/20 backdrop-blur-sm border-y border-neon-cyan/40"
         />
       </div>
     </div>
