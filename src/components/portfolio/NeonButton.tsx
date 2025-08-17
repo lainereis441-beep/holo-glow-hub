@@ -9,6 +9,7 @@ interface NeonButtonProps {
   className?: string;
   variant?: "primary" | "secondary" | "accent";
   size?: "sm" | "md" | "lg";
+  disabled?: boolean;
 }
 
 function useMagnet(ref: React.RefObject<HTMLElement>, strength = 26) {
@@ -66,7 +67,8 @@ export function NeonButton({
   children, 
   className = "", 
   variant = "primary",
-  size = "md"
+  size = "md",
+  disabled = false
 }: NeonButtonProps) {
   const ref = useRef<HTMLAnchorElement>(null);
   const { x, y } = useMagnet(ref, 26);
@@ -78,7 +80,7 @@ export function NeonButton({
         target: href.startsWith("http") ? "_blank" : undefined,
         rel: href.startsWith("http") ? "noopener noreferrer" : undefined
       }
-    : { onClick };
+    : { onClick, disabled };
 
   return (
     <motion.div style={{ x, y }}>
@@ -88,6 +90,7 @@ export function NeonButton({
         className={cn(
           "relative inline-flex items-center gap-2 rounded-2xl font-semibold transition-all duration-300",
           "text-foreground hover:scale-105 active:scale-95",
+          disabled ? "opacity-50 cursor-not-allowed" : "",
           variantStyles[variant],
           sizeStyles[size],
           className

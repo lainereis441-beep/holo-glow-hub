@@ -96,7 +96,8 @@ export default {
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
 				'gradient-hero': 'var(--gradient-hero)',
-				'gradient-text': 'var(--gradient-text)'
+				'gradient-text': 'var(--gradient-text)',
+				'gradient-radial': 'var(--gradient-radial)'
 			},
 			
 			// Box shadows with neon effects
